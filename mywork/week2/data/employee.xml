@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Company>
+    <Employee category="Technical">
+        <FirstName>
+            John
+        </FirstName>
+        <LastName>
+            Doe
+        </LastName>
+        <Contact>
+            <Email>
+                johndoe@example.com
+            </Email>
+            <Phone>
+                123-456-7890
+            </Phone>
+        </Contact>
+    </Employee>
+    <Employee category="Non-Technical">
+        <FirstName>
+            Jane
+        </FirstName>
+        <LastName>
+            Doe
+        </LastName>
+        <Contact>
+            <Email>
+                jane.doe@example.com
+            </Email>
+            <Phone>
+                098-765-4321
+            </Phone>
+        </Contact>
+    </Employee>
+</Company>
