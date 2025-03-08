@@ -20,7 +20,7 @@ def replace_and_commit():
 
     repo = Repo(local_dir)
 
-    # Ensure we're working with the latest version
+    # Checks the latest version of the repository
     repo.remotes.origin.pull()
 
     # Read and modify file
@@ -39,7 +39,7 @@ def replace_and_commit():
     repo.git.add(update=True)
     repo.index.commit(f"Replaced Andrew with {MY_NAME}")
 
-    # Configure author (replace with your details)
+    # Configure author information
     with repo.config_writer() as git_config:
         git_config.set_value("atacanbt", "name", "Atacan")
         git_config.set_value("atacanbt", "email", "atacanbt@gmail.com")
