@@ -8,13 +8,13 @@ g = Github(api_key)
 repo = g.get_repo('atacanbt/WSAA-coursework')
 print(repo.clone_url)
 
-file_info = repo.get_contents('test.txt')
+file_info = repo.get_contents('mywork/week5/test.txt')
 url_of_file = file_info.download_url
-# print(url_of_file)
+print(url_of_file)
 
 response = requests.get(url_of_file)
 content_of_file = response.text
-# print(content_of_file)
+print(content_of_file)
 
 new_contents = content_of_file + '\nThis is a new line added by the script.'
 # print(new_contents)
