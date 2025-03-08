@@ -1,0 +1,50 @@
+[
+    {
+        "name": "README.md",
+        "path": "assignments/README.md",
+        "sha": "da9cc468e6b801b96083b1861104f327d1fff490",
+        "size": 1067,
+        "url": "https://api.github.com/repos/atacanbt/WSAA-coursework/contents/assignments/README.md?ref=main",
+        "html_url": "https://github.com/atacanbt/WSAA-coursework/blob/main/assignments/README.md",
+        "git_url": "https://api.github.com/repos/atacanbt/WSAA-coursework/git/blobs/da9cc468e6b801b96083b1861104f327d1fff490",
+        "download_url": "https://raw.githubusercontent.com/atacanbt/WSAA-coursework/main/assignments/README.md",
+        "type": "file",
+        "_links": {
+            "self": "https://api.github.com/repos/atacanbt/WSAA-coursework/contents/assignments/README.md?ref=main",
+            "git": "https://api.github.com/repos/atacanbt/WSAA-coursework/git/blobs/da9cc468e6b801b96083b1861104f327d1fff490",
+            "html": "https://github.com/atacanbt/WSAA-coursework/blob/main/assignments/README.md"
+        }
+    },
+    {
+        "name": "assignment03-cso.py",
+        "path": "assignments/assignment03-cso.py",
+        "sha": "f7c011c156c4ac9d2b334df8f2eeabfc3f618be8",
+        "size": 528,
+        "url": "https://api.github.com/repos/atacanbt/WSAA-coursework/contents/assignments/assignment03-cso.py?ref=main",
+        "html_url": "https://github.com/atacanbt/WSAA-coursework/blob/main/assignments/assignment03-cso.py",
+        "git_url": "https://api.github.com/repos/atacanbt/WSAA-coursework/git/blobs/f7c011c156c4ac9d2b334df8f2eeabfc3f618be8",
+        "download_url": "https://raw.githubusercontent.com/atacanbt/WSAA-coursework/main/assignments/assignment03-cso.py",
+        "type": "file",
+        "_links": {
+            "self": "https://api.github.com/repos/atacanbt/WSAA-coursework/contents/assignments/assignment03-cso.py?ref=main",
+            "git": "https://api.github.com/repos/atacanbt/WSAA-coursework/git/blobs/f7c011c156c4ac9d2b334df8f2eeabfc3f618be8",
+            "html": "https://github.com/atacanbt/WSAA-coursework/blob/main/assignments/assignment03-cso.py"
+        }
+    },
+    {
+        "name": "assignment2-carddraw.py",
+        "path": "assignments/assignment2-carddraw.py",
+        "sha": "b8261c9f66fcf1b1f4616572cd1fc5a93a8bef5a",
+        "size": 589,
+        "url": "https://api.github.com/repos/atacanbt/WSAA-coursework/contents/assignments/assignment2-carddraw.py?ref=main",
+        "html_url": "https://github.com/atacanbt/WSAA-coursework/blob/main/assignments/assignment2-carddraw.py",
+        "git_url": "https://api.github.com/repos/atacanbt/WSAA-coursework/git/blobs/b8261c9f66fcf1b1f4616572cd1fc5a93a8bef5a",
+        "download_url": "https://raw.githubusercontent.com/atacanbt/WSAA-coursework/main/assignments/assignment2-carddraw.py",
+        "type": "file",
+        "_links": {
+            "self": "https://api.github.com/repos/atacanbt/WSAA-coursework/contents/assignments/assignment2-carddraw.py?ref=main",
+            "git": "https://api.github.com/repos/atacanbt/WSAA-coursework/git/blobs/b8261c9f66fcf1b1f4616572cd1fc5a93a8bef5a",
+            "html": "https://github.com/atacanbt/WSAA-coursework/blob/main/assignments/assignment2-carddraw.py"
+        }
+    }
+]

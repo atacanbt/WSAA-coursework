@@ -5,7 +5,7 @@ import requests
 import urllib.parse
 from config import apikeys as cfg
 
-target_url = 'https://google.com'
+target_url = 'https://en.wikipedia.org/wiki/Galatasaray_High_School'
 
 # API endpoint
 api_url = 'https://api.html2pdf.app/v1/generate'
@@ -27,7 +27,7 @@ print(response.status_code)
 print(response.text)
 result = response.content
 
-file_path = 'output.pdf'
+file_path = 'mywork/week5/output/output.pdf'
 
 with open(file_path, 'wb') as handler:
     handler.write(result)
