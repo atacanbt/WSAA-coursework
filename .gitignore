@@ -196,3 +196,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Conffig files
+config.py
