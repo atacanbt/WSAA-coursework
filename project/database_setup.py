@@ -24,9 +24,7 @@ sql = "CREATE TABLE IF NOT EXISTS cars (" \
     "brand VARCHAR(50) NOT NULL," \
     "model VARCHAR(50) NOT NULL," \
     "year YEAR NOT NULL," \
-    "price DECIMAL(10,2) NOT NULL," \
-    "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP," \
-    "last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP" \
+    "price DECIMAL(10,2) NOT NULL" \
     ")"
 
 cursor.execute(sql)

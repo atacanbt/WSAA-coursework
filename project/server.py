@@ -10,10 +10,9 @@
 # Author: Atacan Buyuktalas
 
 from flask import Flask, jsonify, request
-
 from carDAO import CarDAO
 
-app = Flask(__name__, static_url_path='', static_folder='.')
+app = Flask(__name__)
 
 # Create a single instance of CarDAO to be used across all routes
 car_dao = CarDAO()
