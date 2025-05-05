@@ -65,6 +65,11 @@ project/
 
 └── requirements.txt                # Dependencies
 
+## Notes
+
+- `carviewer.html` file was developed with the assistance of large language models (LLMs), which supported tasks such as code completion, error detection, and refactoring.
+
+
 ### Troubleshooting
 
 - Common Issues:
