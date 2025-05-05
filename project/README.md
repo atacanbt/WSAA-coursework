@@ -52,15 +52,15 @@ python3 server.py
 
 project/
 
-├── server.py            # Flask application
+├── server.py                       # Flask application
 
-├── carDAO.py            # Database operations
+├── carDAO.py                       # Database operations
 
-├── carviewer.html       # Web interface
+├── carviewer.html                  # Web interface
 
-├── dbconfig.py          # Database configuration
+├── dbconfig.py                     # Database configuration
 
-└── requirements.txt     # Dependencies
+└── requirements.txt                # Dependencies
 
 ### Troubleshooting
 
