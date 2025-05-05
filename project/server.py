@@ -12,11 +12,9 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 app = Flask(__name__)
-cors = CORS(app) # allow CORS for all domains on all routes.
+cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 from carDAO import CarDAO
-
-# Enable CORS for all routes
 
 # Create a single instance of CarDAO to be used across all routes
 car_dao = CarDAO()
