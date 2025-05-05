@@ -23,10 +23,10 @@ class CarDAO:
 
     def get_cursor(self):
         self.connection = mysql.connector.connect(
-            host=self.host,
-            user=self.user,
-            password=self.password,
-            database=self.database
+            host=       self.host,
+            user=       self.user,
+            password=   self.password,
+            database=   self.database
         )
         self.cursor = self.connection.cursor()
         return self.cursor
@@ -37,22 +37,18 @@ class CarDAO:
 
     # Get all cars
     def get_cars(self):
-       try:
-            cursor = self.get_cursor()
-            sql = "SELECT * FROM cars"
-            cursor.execute(sql)
-            result = cursor.fetchall()
-            car_list = []
-            for car in result:
-                if car: 
-                    car_list.append(self.convert_to_dict(car))
+        cursor = self.get_cursor()
+        sql = "SELECT * FROM cars"
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        car_list = []
+        for car in result:
+            if car: 
+                car_list.append(self.convert_to_dict(car))
         
-            self.close_all()
-            return car_list
-       except Exception as e:
-            print("Error in CarDAO.get_cars:", str(e))
-            self.close_all()
-            raise
+        self.close_all()
+        return car_list
+        
 
     # Get a car by ID
     def get_car(self, id):
@@ -62,8 +58,9 @@ class CarDAO:
 
         cursor.execute(sql, values)
         result = cursor.fetchone()
+        returnValue = self.convert_to_dict(result)
         self.close_all()
-        return self.convert_to_dict(result)
+        return returnValue
 
     # Create a new car
     def add_car(self, car):
