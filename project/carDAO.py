@@ -26,7 +26,8 @@ class CarDAO:
             host=       self.host,
             user=       self.user,
             password=   self.password,
-            database=   self.database
+            database=   self.database,
+            auth_plugin= 'mysql_native_password'
         )
         self.cursor = self.connection.cursor()
         return self.cursor
