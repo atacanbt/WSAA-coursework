@@ -10,29 +10,39 @@
 # Author: Atacan Buyuktalas
 
 from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
+app = Flask(__name__)
+cors = CORS(app) # allow CORS for all domains on all routes.
+app.config['CORS_HEADERS'] = 'Content-Type'
 from carDAO import CarDAO
 
-app = Flask(__name__)
+# Enable CORS for all routes
 
 # Create a single instance of CarDAO to be used across all routes
 car_dao = CarDAO()
 
+app = Flask(__name__, static_url_path='', static_folder='.')
+
 @app.route('/')
+@cross_origin()
 def index():
-    return 'Welcome to the Car API 1.0'
+    return 'Welcome to the Car API 1.01'
 
 # Get all cars
 @app.route('/cars', methods=['GET'])
+@cross_origin()
 def get_cars():
     return jsonify(car_dao.get_cars())  # Use instance
 
 # Get a car by id
 @app.route('/cars/<int:car_id>', methods=['GET'])
+@cross_origin()
 def get_car(car_id):
     return jsonify(car_dao.get_car(car_id))  # Use instance
 
 # Create a new car
 @app.route('/cars', methods=['POST'])
+@cross_origin()
 def add_car():
     # Read the JSON data from the client
     jsonstring = request.json
@@ -55,6 +65,7 @@ def add_car():
 
 # Update a car
 @app.route('/cars/<int:car_id>', methods=['PUT'])
+@cross_origin()
 def update_car(car_id):
     car = request.get_json()
     updated_car = car_dao.update_car(car_id, car)  # Use instance
@@ -62,6 +73,7 @@ def update_car(car_id):
 
 # Delete a car
 @app.route('/cars/<int:car_id>', methods=['DELETE'])
+@cross_origin()
 def delete_car(car_id):
     result = car_dao.delete_car(car_id)  # Use instance
     return jsonify(result)
