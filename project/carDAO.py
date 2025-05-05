@@ -37,16 +37,22 @@ class CarDAO:
 
     # Get all cars
     def get_cars(self):
-        cursor = self.get_cursor()
-        sql = "SELECT * FROM cars"
-        cursor.execute(sql)
-        result = cursor.fetchall()
-        car_list = []
-        for car in result:
-            car_list.append(self.convert_to_dict(car))
+       try:
+            cursor = self.get_cursor()
+            sql = "SELECT * FROM cars"
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            car_list = []
+            for car in result:
+                if car: 
+                    car_list.append(self.convert_to_dict(car))
         
-        self.close_all()
-        return car_list
+            self.close_all()
+            return car_list
+       except Exception as e:
+            print("Error in CarDAO.get_cars:", str(e))
+            self.close_all()
+            raise
 
     # Get a car by ID
     def get_car(self, id):
