@@ -11,15 +11,19 @@
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
-app = Flask(__name__)
-cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+import traceback
+import logging
 from carDAO import CarDAO
+
+# Setup basic logging
+logging.basicConfig(level=logging.DEBUG)
+
+app = Flask(__name__, static_url_path='', static_folder='.')
+CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Create a single instance of CarDAO to be used across all routes
 car_dao = CarDAO()
-
-app = Flask(__name__, static_url_path='', static_folder='.')
 
 @app.route('/')
 @cross_origin()
@@ -30,51 +34,74 @@ def index():
 @app.route('/cars', methods=['GET'])
 @cross_origin()
 def get_cars():
-    return jsonify(car_dao.get_cars())  # Use instance
+    try:
+        return jsonify(car_dao.get_cars())
+    except Exception as e:
+        logging.error("Error fetching cars: %s", e)
+        traceback.print_exc()
+        return jsonify({"error": "Failed to fetch cars", "details": str(e)}), 500
 
-# Get a car by id
+# Get a car by ID
 @app.route('/cars/<int:car_id>', methods=['GET'])
 @cross_origin()
 def get_car(car_id):
-    return jsonify(car_dao.get_car(car_id))  # Use instance
+    try:
+        return jsonify(car_dao.get_car(car_id))
+    except Exception as e:
+        logging.error("Error fetching car with ID %d: %s", car_id, e)
+        traceback.print_exc()
+        return jsonify({"error": f"Failed to fetch car {car_id}", "details": str(e)}), 500
 
 # Create a new car
 @app.route('/cars', methods=['POST'])
 @cross_origin()
 def add_car():
-    # Read the JSON data from the client
-    jsonstring = request.json
-    # Required fields
-    required_fields = {'brand', 'model', 'year', 'price'}
-    # Check if all required fields exist
-    if not jsonstring or not required_fields.issubset(jsonstring):
-        return jsonify({"error": "Missing required fields"}), 400  # Return HTTP 400 Bad Request
+    try:
+        jsonstring = request.get_json()
+        logging.debug("Received JSON: %s", jsonstring)
 
-    # Create car dictionary
-    car = {
-        'brand': jsonstring['brand'],
-        'model': jsonstring['model'],
-        'year': jsonstring['year'],
-        'price': jsonstring['price']
-    }
+        required_fields = {'brand', 'model', 'year', 'price'}
+        if not jsonstring or not required_fields.issubset(jsonstring):
+            return jsonify({"error": "Missing required fields"}), 400
 
-    new_car = car_dao.add_car(car)  # Use instance
-    return jsonify(new_car), 201  # Return the created car with HTTP 201 status
+        car = {
+            'brand': jsonstring['brand'],
+            'model': jsonstring['model'],
+            'year': jsonstring['year'],
+            'price': jsonstring['price']
+        }
+
+        new_car = car_dao.add_car(car)
+        return jsonify(new_car), 201
+    except Exception as e:
+        logging.error("Error adding car: %s", e)
+        traceback.print_exc()
+        return jsonify({"error": "Failed to add car", "details": str(e)}), 500
 
 # Update a car
 @app.route('/cars/<int:car_id>', methods=['PUT'])
 @cross_origin()
 def update_car(car_id):
-    car = request.get_json()
-    updated_car = car_dao.update_car(car_id, car)  # Use instance
-    return jsonify(updated_car)
+    try:
+        car = request.get_json()
+        updated_car = car_dao.update_car(car_id, car)
+        return jsonify(updated_car)
+    except Exception as e:
+        logging.error("Error updating car ID %d: %s", car_id, e)
+        traceback.print_exc()
+        return jsonify({"error": f"Failed to update car {car_id}", "details": str(e)}), 500
 
 # Delete a car
 @app.route('/cars/<int:car_id>', methods=['DELETE'])
 @cross_origin()
 def delete_car(car_id):
-    result = car_dao.delete_car(car_id)  # Use instance
-    return jsonify(result)
+    try:
+        result = car_dao.delete_car(car_id)
+        return jsonify(result)
+    except Exception as e:
+        logging.error("Error deleting car ID %d: %s", car_id, e)
+        traceback.print_exc()
+        return jsonify({"error": f"Failed to delete car {car_id}", "details": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
