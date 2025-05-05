@@ -28,7 +28,7 @@ car_dao = CarDAO()
 @app.route('/')
 @cross_origin()
 def index():
-    return 'Welcome to the Car API 1.01'
+    return app.send_static_file('carviewer.html')
 
 # Get all cars
 @app.route('/cars', methods=['GET'])
