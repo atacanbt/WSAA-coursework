@@ -5,13 +5,13 @@
 
 import mysql.connector
 from mysql.connector import errorcode
-from config import keys 
+from dbconfig import mysql 
 
 db = mysql.connector.connect(
-        host = keys["host"],
-        user = keys["user"],
-        password = keys["password"],
-        database = keys["database"]
+        host = mysql["host"],
+        user = mysql["user"],
+        password = mysql["password"],
+        database = mysql["database"]
         )
 cursor = db.cursor()
 

@@ -4,7 +4,7 @@
 # Author: Atacan Buyuktalas
 
 import mysql.connector
-from config import keys as cfg
+from dbconfig import mysql as cfg
 
 
 class CarDAO:
