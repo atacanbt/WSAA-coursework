@@ -9,10 +9,10 @@ This folder contains the final project for the **Web Services and Applications**
 
 
 - **The application provides the following functionalities:**
-- **View Cars**: Display a list of cars stored in the database.
-- **Add New Car**: Add a new car to the database.
-- **Update Car Details**: Modify details of an existing car.
-- **Delete Car**: Remove a car from the database.  
+    - **View Cars**: Display a list of cars stored in the database.
+    - **Add New Car**: Add a new car to the database.
+    - **Update Car Details**: Modify details of an existing car.
+    - **Delete Car**: Remove a car from the database.  
 
 ## Setup and Installation
 
@@ -52,9 +52,13 @@ python3 server.py
 
 project/
 ├── server.py            # Flask application
+
 ├── carDAO.py            # Database operations
+
 ├── carviewer.html       # Web interface
+
 ├── dbconfig.py          # Database configuration
+
 └── requirements.txt     # Dependencies
 
 ### Troubleshooting
