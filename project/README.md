@@ -51,6 +51,7 @@ python3 server.py
 ## Project Structure
 
 project/
+
 ├── server.py            # Flask application
 
 ├── carDAO.py            # Database operations
