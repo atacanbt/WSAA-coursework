@@ -35,11 +35,11 @@ def index():
 @cross_origin()
 def get_cars():
     try:
-        return jsonify(car_dao.get_cars())
+        cars = car_dao.get_cars()
+        return jsonify(cars)
     except Exception as e:
-        logging.error("Error fetching cars: %s", e)
-        traceback.print_exc()
-        return jsonify({"error": "Failed to fetch cars", "details": str(e)}), 500
+        print("Error in get_cars():", str(e))  # Log to PythonAnywhere logs
+        return jsonify({"error": "Internal server error", "details": str(e)}), 500
 
 # Get a car by ID
 @app.route('/cars/<int:car_id>', methods=['GET'])
